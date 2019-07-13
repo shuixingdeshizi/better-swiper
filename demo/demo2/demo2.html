@@ -38,7 +38,7 @@
   <script src="../../dist/better-swiper.js"></script>
 </head>
 <body>
-  <h1>基础用户：默认配置</h1>
+  <h1>循环轮播</h1>
   <div class="better-swiper wrapper">
     <ul class="container">
       <li class="slide" style="background-color: red">slide1</li>
@@ -50,7 +50,11 @@
     </ul>
   </div>
   <script>
-    let BSwiper = new BetterSwiper('.better-swiper')
+    let BSwiper = new BetterSwiper('.better-swiper', {
+      speed: 4000,
+      delay: 7000,
+      loop: true
+    })
     BSwiper.on('slideChange', (index) => {
       console.log(index)
     })
