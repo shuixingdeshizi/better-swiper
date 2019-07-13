@@ -1,0 +1,17 @@
+{
+  "name": "better-swiper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/better-swiper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "rollup -c ./build/rollup.config.js -w"
+  },
+  "author": "fanwenxiang",
+  "license": "ISC",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolimits4web/Swiper.git"
+  }
+}
