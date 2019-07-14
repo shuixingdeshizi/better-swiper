@@ -1,5 +1,7 @@
 
-import { EventBus } from './better-swiper/event-bus'
+import EventBus from './core/event-bus'
+
+import TouchBus from './core/touch-bus'
 
 import { warn } from './utils/debug'
 
@@ -48,6 +50,21 @@ class BetterSwiper {
     this.events = new EventBus()
 
 
+    let touchBus = new TouchBus(this.wrapper)
+
+    touchBus.on('touchend', (target) => {
+      console.log(target)
+      if (target.directX === 'left') {
+        // 根据手指滑动的距离移动
+        // ...
+        // this.slidePrev()
+        console.log('切换到上一个')
+      } else {
+        // this.slideNext()
+        console.log('切换到下一个')
+      }
+    })
+
     this.init()
   }
 
@@ -75,15 +92,15 @@ class BetterSwiper {
       this.container.addEventListener('transitionend', handler)
     }
     this.container.style.cssText = cssText
-    this.events.emit('slideChange', this.currentIndex)
+    this.events.trigger('slideChange', this.currentIndex)
+  }
+
+  slidePrev () {
+    console.log('slidePrev')
   }
 
   on (event, handler) {
     this.events.on(event, handler)
-  }
-
-  emit (event, context) {
-    this.event(event, context)
   }
 
   slide () {
