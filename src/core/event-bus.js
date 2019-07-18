@@ -31,7 +31,7 @@ class EventBus {
         }
     }
     remove (event, handler) {
-        if (!this.events[type]) {
+        if (!this.events[event]) {
             return
         } 
 
